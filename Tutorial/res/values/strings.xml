@@ -1,0 +1,30 @@
+<resources>
+
+    <string name="app_name">Tutorial</string>
+    <string name="result">Seu Total é 0</string>
+    <string name="menu_settings">Settings</string>
+    <string name="start_point">Starting Point</string>
+    <string name="add_one">Adiciona um</string>
+    <string name="sub_one">Subtrai um</string>
+    <string name="type_cmd">Digite um Comando</string>
+    <string name="text_play">Text Play</string>
+    <string name="menu">Menu</string>
+    <string name="email">Email</string>
+    <string name="camera">Câmera</string>
+    <string name="data">Dados</string>
+    <string name="preference">Preferências</string>
+    <string name="gfx">Animações Gráficas</string>
+    <string name="gfxSurface">GFX Surface</string>
+    <string name="soundStuff">Sound Stuff</string>
+    <string name="slider">Slider</string>
+    <string name="tabs">Abas</string>
+    <string name="simple_browser">Simple Browser</string>
+    <string name="flipper">Flipper</string>
+    <string name="shared_prefs">Shared Preferences</string>
+    <string name="internal_data">Internal Data</string>
+    <string name="external_data">External Data</string>
+    <string name="sqlite_example">SQLite Example</string>
+    <string name="sql_view">SQL View</string>
+    <string name="accelerate">Accelerate</string>
+    
+</resources>
