@@ -80,9 +80,15 @@ public class HotOrNot {
 		int iName = c.getColumnIndex(KEY_NAME);
 		int iHotness = c.getColumnIndex(KEY_HOTNESS);
 		
+		StringBuffer buf = new StringBuffer();
 		for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
-			result = result + c.getString(iRow) + " " + c.getString(iName) + c.getString(iHotness) + "\n";
+			buf.append(c.getString(iRow));
+			buf.append(" ");
+			buf.append(c.getString(iName));
+			buf.append(c.getString(iHotness));
+			buf.append("\n");
 		}
+		result = buf.toString();
 		
 		return result;
 	}

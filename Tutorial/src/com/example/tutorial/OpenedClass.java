@@ -27,18 +27,19 @@ public class OpenedClass extends Activity implements OnClickListener,
 		setContentView(R.layout.send);
 
 		initialize();
-		
-		SharedPreferences getData = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+		SharedPreferences getData = PreferenceManager
+				.getDefaultSharedPreferences(getBaseContext());
 		String et = getData.getString("name", "Bryan Ž...");
 		String values = getData.getString("list", "4");
-		
-		if (values.contentEquals("1")){
+
+		if (values.contentEquals("1")) {
 			question.setText(et);
 		}
-		
-		//Bundle gotBasket = getIntent().getExtras();
-		//gotBread = gotBasket.getString("key");
-		//question.setText(gotBread);
+
+		// Bundle gotBasket = getIntent().getExtras();
+		// gotBread = gotBasket.getString("key");
+		// question.setText(gotBread);
 	}
 
 	private void initialize() {
@@ -47,7 +48,7 @@ public class OpenedClass extends Activity implements OnClickListener,
 		test = (TextView) findViewById(R.id.tvText);
 		returnData = (Button) findViewById(R.id.bReturn);
 		returnData.setOnClickListener(this);
-		selectionList = (RadioGroup) findViewById (R.id.rgAnswers);
+		selectionList = (RadioGroup) findViewById(R.id.rgAnswers);
 		selectionList.setOnCheckedChangeListener(this);
 	}
 
@@ -55,7 +56,7 @@ public class OpenedClass extends Activity implements OnClickListener,
 		// TODO Auto-generated method stub
 		Intent person = new Intent();
 		Bundle backpack = new Bundle();
-		backpack.putString("answer",  setData);
+		backpack.putString("answer", setData);
 		person.putExtras(backpack);
 		setResult(RESULT_OK, person);
 		finish();
@@ -65,7 +66,7 @@ public class OpenedClass extends Activity implements OnClickListener,
 		// TODO Auto-generated method stub
 		switch (checkedId) {
 		case R.id.rInteligente:
-			setData = "Provavelmente certo!"; 
+			setData = "Provavelmente certo!";
 			break;
 
 		case R.id.rSexy:
@@ -74,6 +75,9 @@ public class OpenedClass extends Activity implements OnClickListener,
 
 		case R.id.rAmbos:
 			setData = "îtima escolha!";
+			break;
+
+		default:
 			break;
 		}
 		test.setText(setData);

@@ -26,8 +26,8 @@ public class SimpleBrowser extends Activity implements OnClickListener {
 		ourBrow.getSettings().setJavaScriptEnabled(true);
 		ourBrow.getSettings().setLoadWithOverviewMode(true);
 		ourBrow.getSettings().setUseWideViewPort(true);
-		
-		ourBrow.setWebViewClient(new ourViewClient());
+
+		ourBrow.setWebViewClient(new OurViewClient());
 
 		try {
 			ourBrow.loadUrl("http://www.apple.com.br");
@@ -56,7 +56,7 @@ public class SimpleBrowser extends Activity implements OnClickListener {
 		case R.id.bGo:
 			String theWebsite = url.getText().toString();
 			ourBrow.loadUrl(theWebsite);
-			//fechando o teclado depois de usar na edicao de texto
+			// fechando o teclado depois de usar na edicao de texto
 			InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			imm.hideSoftInputFromWindow(url.getWindowToken(), 0);
 			break;
@@ -77,6 +77,9 @@ public class SimpleBrowser extends Activity implements OnClickListener {
 
 		case R.id.bHistory:
 			ourBrow.clearHistory();
+			break;
+
+		default:
 			break;
 
 		}

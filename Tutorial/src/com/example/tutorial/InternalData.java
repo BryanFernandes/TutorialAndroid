@@ -18,13 +18,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class InternalData extends Activity implements OnClickListener{
+public class InternalData extends Activity implements OnClickListener {
 
 	EditText sharedData;
 	TextView dataResults;
 	FileOutputStream fos;
 	String FILENAME = "InternalString";
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -32,7 +32,7 @@ public class InternalData extends Activity implements OnClickListener{
 		setContentView(R.layout.sharedpreferences);
 		setupVariables();
 	}
-	
+
 	private void setupVariables() {
 		// TODO Auto-generated method stub
 		Button save = (Button) findViewById(R.id.bSave);
@@ -41,7 +41,7 @@ public class InternalData extends Activity implements OnClickListener{
 		dataResults = (TextView) findViewById(R.id.tvLoadSharedPrefes);
 		save.setOnClickListener(this);
 		load.setOnClickListener(this);
-		
+
 		try {
 			fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
 			fos.close();
@@ -59,20 +59,15 @@ public class InternalData extends Activity implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.bSave:
 			String data = sharedData.getText().toString();
-			//saving sada via File
-			/*File f = new File(FILENAME);
-			try {
-				fos = new FileOutputStream(f);
-				//write some data
-				fos.close();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
-			
+			// saving sada via File
+			/*
+			 * File f = new File(FILENAME); try { fos = new FileOutputStream(f);
+			 * //write some data fos.close(); } catch (FileNotFoundException e)
+			 * { // TODO Auto-generated catch block e.printStackTrace(); } catch
+			 * (IOException e) { // TODO Auto-generated catch block
+			 * e.printStackTrace(); }
+			 */
+
 			try {
 				fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
 				fos.write(data.getBytes());
@@ -81,34 +76,37 @@ public class InternalData extends Activity implements OnClickListener{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			break;
 
 		case R.id.bLoad:
-			new loadSomeStuff().execute(FILENAME);
+			new LoadSomeStuff().execute(FILENAME);
+			break;
+
+		default:
 			break;
 		}
 	}
 
-	public class loadSomeStuff extends AsyncTask<String, Integer, String>{
+	public class LoadSomeStuff extends AsyncTask<String, Integer, String> {
 
 		ProgressDialog dialog;
-		
-		protected void onPreExecute(){
-			//example of setting up something
+
+		protected void onPreExecute() {
+			// example of setting up something
 			dialog = new ProgressDialog(InternalData.this);
 			dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 			dialog.setMax(100);
 			dialog.show();
 		}
-		
+
 		@Override
 		protected String doInBackground(String... arg0) {
 			// TODO Auto-generated method stub
-			String collected= null;
+			String collected = null;
 			FileInputStream fis = null;
-			
-			for(int i=0; i<20; i++){
+
+			for (int i = 0; i < 20; i++) {
 				publishProgress(5);
 				try {
 					Thread.sleep(88);
@@ -121,7 +119,7 @@ public class InternalData extends Activity implements OnClickListener{
 			try {
 				fis = openFileInput(FILENAME);
 				byte[] dataArray = new byte[fis.available()];
-				while(fis.read(dataArray) != -1){
+				while (fis.read(dataArray) != -1) {
 					collected = new String(dataArray);
 				}
 			} catch (FileNotFoundException e) {
@@ -130,7 +128,7 @@ public class InternalData extends Activity implements OnClickListener{
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} finally{
+			} finally {
 				try {
 					fis.close();
 					return collected;
@@ -139,17 +137,17 @@ public class InternalData extends Activity implements OnClickListener{
 					e.printStackTrace();
 				}
 			}
-			
+
 			return null;
 		}
-		
-		protected void onProgressUpdate(Integer... progress){
+
+		protected void onProgressUpdate(Integer... progress) {
 			dialog.incrementProgressBy(progress[0]);
 		}
-		
-		protected void onPostExecute(String result){
+
+		protected void onPostExecute(String result) {
 			dataResults.setText(result);
 		}
-		
+
 	}
 }

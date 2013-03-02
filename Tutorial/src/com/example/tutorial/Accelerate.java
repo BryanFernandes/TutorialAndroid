@@ -61,8 +61,8 @@ public class Accelerate extends Activity implements SensorEventListener {
 
 				Canvas canvas = ourHolder.lockCanvas();
 				canvas.drawRGB(02, 02, 150);
-				float centerX = canvas.getWidth() / 2;
-				float centerY = canvas.getHeight() / 2;
+				float centerX = (float) canvas.getWidth() / 2;
+				float centerY = (float) canvas.getHeight() / 2;
 				canvas.drawBitmap(ball, centerX + sensorX * 20, centerY
 						+ sensorY * 20, null);
 

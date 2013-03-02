@@ -48,8 +48,12 @@ public class SharedPrefs extends Activity implements OnClickListener {
 
 		case R.id.bLoad:
 			someData = getSharedPreferences(filename, 0);
-			String dataReturned = someData.getString("sharedString", "N‹o foi poss’vel carregar os dados");
+			String dataReturned = someData.getString("sharedString",
+					"N‹o foi poss’vel carregar os dados");
 			dataResults.setText(dataReturned);
+			break;
+
+		default:
 			break;
 		}
 	}

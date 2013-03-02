@@ -3,7 +3,7 @@ package com.example.tutorial;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class ourViewClient extends WebViewClient {
+public class OurViewClient extends WebViewClient {
 
 	@Override
 	public boolean shouldOverrideUrlLoading(WebView v, String url) {

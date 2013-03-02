@@ -94,6 +94,8 @@ public class TextPlay extends Activity implements View.OnClickListener{
 			
 			break;
 		
+		default:
+			break;
 		}
 	}
 

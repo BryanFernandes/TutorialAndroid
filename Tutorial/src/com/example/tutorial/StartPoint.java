@@ -52,8 +52,11 @@ public class StartPoint extends Activity implements View.OnClickListener{
 			counter--;
 			
 			break;
+			
+		default:
+			break;
 		}
 		
-		display.setText("Seu Total Ž " + counter);
+		display.setText(new Integer(counter).toString());
 	}
 }

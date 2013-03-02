@@ -149,6 +149,9 @@ public class SQLiteExample extends Activity implements OnClickListener {
 				d.show();
 			}
 			break;
+
+		default:
+			break;
 		}
 	}
 }

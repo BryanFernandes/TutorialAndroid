@@ -96,6 +96,9 @@ public class Tabs extends Activity implements OnClickListener {
 			}
 
 			break;
+			
+		default:
+			break;
 		}
 	}
 }

@@ -9,8 +9,9 @@
         android:layout_width="fill_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:text="@string/result"
-        android:textSize="40dp" />
+        android:text="Seu Total é "
+        android:textSize="40dp"
+         />
     
     <Button 
         android:id="@+id/bAdd_one"

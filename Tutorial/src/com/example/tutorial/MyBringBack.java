@@ -39,9 +39,9 @@ public class MyBringBack extends View{
 		textPaint.setTextAlign(Align.CENTER);
 		textPaint.setTextSize(50);
 		textPaint.setTypeface(font);
-		canvas.drawText("mybringback", canvas.getWidth()/2, 200, textPaint);
+		canvas.drawText("mybringback", (float) canvas.getWidth()/2, 200, textPaint);
 		
-		canvas.drawBitmap(gBall, canvas.getWidth()/2, changingY, null);
+		canvas.drawBitmap(gBall, (float) canvas.getWidth()/2, changingY, null);
 		if (changingY < canvas.getHeight()){
 			changingY += 10;
 		} else{

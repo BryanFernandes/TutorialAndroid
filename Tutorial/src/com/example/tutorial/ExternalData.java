@@ -47,7 +47,7 @@ public class ExternalData extends Activity implements OnItemSelectedListener,
 		saveFile = (EditText) findViewById(R.id.etSaveAs);
 		confirm = (Button) findViewById(R.id.bConfirmSaveAs);
 		save = (Button) findViewById(R.id.bSaveFile);
-		saveFile = (EditText) findViewById (R.id.etSaveAs); 
+		saveFile = (EditText) findViewById(R.id.etSaveAs);
 		confirm.setOnClickListener(this);
 		save.setOnClickListener(this);
 
@@ -98,6 +98,9 @@ public class ExternalData extends Activity implements OnItemSelectedListener,
 			path = Environment
 					.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 			break;
+
+		default:
+			break;
 		}
 	}
 
@@ -116,42 +119,60 @@ public class ExternalData extends Activity implements OnItemSelectedListener,
 		case R.id.bSaveFile:
 			String f = saveFile.getText().toString();
 			file = new File(path, f + ".png");
-			
+
 			checkState();
 			if (canW == canR == true) {
+				boolean check;
+				check = path.mkdir();
 
-				path.mkdir();
-				
-				try {
-					InputStream is = getResources().openRawResource(R.drawable.greenball);
-					OutputStream os = new FileOutputStream(file);
-					byte[] data = new byte[is.available()];
-					is.read(data);
-					os.write(data);
-					is.close();
-					os.close();
-					
-					Toast t = Toast.makeText(ExternalData.this, "Arquivo foi salvo", Toast.LENGTH_LONG);
-					t.show();
-					
-					//Update files for the user to use
-					MediaScannerConnection.scanFile(ExternalData.this, new String[] {file.toString()}, null, new MediaScannerConnection.OnScanCompletedListener() {
-						
-						public void onScanCompleted(String path, Uri uri) {
-							// TODO Auto-generated method stub
-							Toast t = Toast .makeText(ExternalData.this, "scan completo", Toast.LENGTH_SHORT);
-							t.show();
-						}
-					});
+				if (check == true) {
+					try {
+						InputStream is = getResources().openRawResource(
+								R.drawable.greenball);
+						OutputStream os = new FileOutputStream(file);
+						byte[] data = new byte[is.available()];
+						is.read(data);
+						os.write(data);
+						is.close();
+						os.close();
 
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+						Toast t = Toast.makeText(ExternalData.this,
+								"Arquivo foi salvo", Toast.LENGTH_LONG);
+						t.show();
+
+						// Update files for the user to use
+						MediaScannerConnection
+								.scanFile(
+										ExternalData.this,
+										new String[] { file.toString() },
+										null,
+										new MediaScannerConnection.OnScanCompletedListener() {
+
+											public void onScanCompleted(
+													String path, Uri uri) {
+												// TODO Auto-generated method
+												// stub
+												Toast t = Toast.makeText(
+														ExternalData.this,
+														"scan completo",
+														Toast.LENGTH_SHORT);
+												t.show();
+											}
+										});
+
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
+
 			}
+			break;
+
+		default:
 			break;
 		}
 	}
