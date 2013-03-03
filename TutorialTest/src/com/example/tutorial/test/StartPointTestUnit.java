@@ -15,6 +15,7 @@ public class StartPointTestUnit extends
 	private Button tAddOne, tSubOne;
 	private TextView tNumber;
 
+	@SuppressWarnings("deprecation")
 	public StartPointTestUnit() {
 		super("com.example.tutorial", StartPoint.class);
 	}
@@ -59,20 +60,20 @@ public class StartPointTestUnit extends
 		assertTrue("Seu Total Ž 1", one == 1);
 
 	}
-	
+
 	@SmallTest
-	public void testSubOne(){
+	public void testSubOne() {
 		TouchUtils.clickView(this, tSubOne);
 		int minusOne;
-		
-		try{
+
+		try {
 			minusOne = Integer.parseInt(tNumber.getText().toString());
 		} catch (NumberFormatException e) {
 			minusOne = -2;
 		}
-		
+
 		assertTrue("Seu Total Ž -1", minusOne == -1);
-		
+
 	}
 
 }
