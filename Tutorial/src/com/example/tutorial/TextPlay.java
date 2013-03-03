@@ -51,10 +51,13 @@ public class TextPlay extends Activity implements View.OnClickListener{
 			
 			if (check.contentEquals("left")){
 				display.setGravity(Gravity.LEFT);
+				display.setTextColor(Color.BLACK);
 			}else if (check.contentEquals("right")){
 				display.setGravity(Gravity.RIGHT);
+				display.setTextColor(Color.BLACK);
 			}else if (check.contentEquals("center")){
 				display.setGravity(Gravity.CENTER);
+				display.setTextColor(Color.BLACK);
 			}else if (check.contentEquals("blue")){
 				display.setTextColor(Color.BLUE);
 			}else if (check.contentEquals("WTF")){
