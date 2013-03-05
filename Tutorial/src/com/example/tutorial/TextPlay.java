@@ -15,14 +15,17 @@ import android.widget.ToggleButton;
 
 public class TextPlay extends Activity implements View.OnClickListener{
 
-	Button chkCmd;
-	TextView display;
-	ToggleButton passTog;
-	EditText input;
+	Button chkCmd = null;
+	TextView display = null;
+	ToggleButton passTog = null;
+	EditText input = null;
 	
+	
+	/**
+	 * method responsible for reference the XML file containing the layout definitions and initialize variables
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.text);
@@ -33,8 +36,10 @@ public class TextPlay extends Activity implements View.OnClickListener{
 		chkCmd.setOnClickListener(this);
 	}
 
+	/**
+	 * Method responsible for initiating variables
+	 */
 	private void variablesReference() {
-		// TODO Auto-generated method stub
 		
 		chkCmd = (Button) findViewById (R.id.bResults);
 		display = (TextView) findViewById (R.id.tvResults);
@@ -42,8 +47,12 @@ public class TextPlay extends Activity implements View.OnClickListener{
 		input = (EditText) findViewById (R.id.etCommands);
 	}
 
+	/**
+	 * ...<Method responsible for handling the events that occurred on the device screen.>
+	 * 
+	 * @param v - contains the reference of the application screen
+	 */
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		switch (v.getId()){
 		case R.id.bResults:
 			String check = input.getText().toString();
