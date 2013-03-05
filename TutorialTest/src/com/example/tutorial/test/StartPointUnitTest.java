@@ -8,7 +8,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class StartPointTestUnit extends
+public class StartPointUnitTest extends
 		ActivityInstrumentationTestCase2<StartPoint> {
 
 	private StartPoint tActivity;
@@ -16,7 +16,7 @@ public class StartPointTestUnit extends
 	private TextView tNumber;
 
 	@SuppressWarnings("deprecation")
-	public StartPointTestUnit() {
+	public StartPointUnitTest() {
 		super("com.example.tutorial", StartPoint.class);
 	}
 

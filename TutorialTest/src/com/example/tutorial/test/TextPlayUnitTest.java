@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class TextPlayTestUnit extends
+public class TextPlayUnitTest extends
 		ActivityInstrumentationTestCase2<TextPlay> {
 
 	private TextPlay tActivity;
@@ -23,7 +23,7 @@ public class TextPlayTestUnit extends
 	private EditText tCommand;
 
 	@SuppressWarnings("deprecation")
-	public TextPlayTestUnit() {
+	public TextPlayUnitTest() {
 		super("com.example.tutorial", TextPlay.class);
 	}
 
